@@ -945,6 +945,7 @@ body p {
   max-width: 700px;
   margin: 45px auto;
   box-shadow: 0 5px 40px -1px rgba(2,10,18,0.11);
+  font-size: 1.25em;
 }
 @media (max-width: 576px) {
   .article {
