@@ -129,7 +129,7 @@
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>2020-06-15</span
         class="post-info-item">
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>470</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>524</span>
     </div>
   </div>
 </section>
@@ -138,7 +138,7 @@
       <p>nodejs开发vue项目时遇到chunk-vendors过大的情况，有以下途径减小。</p>
 <ol>
 <li>import换cdn<br>import导入的模块都将从你的服务器下载，打包到chunk-vendors将会导致其特别大，尤其是element-ui这种特别大的UI框架。<br>项目根目录下创建vue.config.js,在module.exports={}中添加<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">configureWebpack: <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;<br>        config.externals = &#123;<br>            <span class="hljs-string">'vue'</span>: <span class="hljs-string">'Vue'</span>,<br>            <span class="hljs-string">'vue-router'</span>: <span class="hljs-string">'VueRouter'</span>,<br>            <span class="hljs-string">'element-ui'</span>: <span class="hljs-string">'ElementUI'</span>,<br>            <span class="hljs-string">'axios'</span>: <span class="hljs-string">'axios'</span>,<br>            <span class="hljs-string">'vuex'</span>: <span class="hljs-string">'Vuex'</span><br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
-ElementUI不需要引入也不需要use了</li>
+不需要import也不需要use了。如果还有报错，可能是eslint报错，添加configureWebpack的兄弟属性lintOnSave:false</li>
 <li>nginx打开gzip</li>
 <li>按需引入</li>
 </ol>
